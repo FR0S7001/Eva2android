@@ -44,26 +44,7 @@ const routes: Routes = [
     path: 'restarpass',
     loadChildren: () => import('./pages/restarpass/restarpass.module').then(m => m.RestarpassPageModule)
   },
-  {
-    path: 'foro-add',
-    loadChildren: () => import('./foro/foro-add/foro-add.module').then(m => m.ForoAddPageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
-  },
-  {
-    path: 'foro-detail',
-    loadChildren: () => import('./foro/foro-detail/foro-detail.module').then(m => m.ForoDetailPageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
-  },
-  {
-    path: 'foro-edit',
-    loadChildren: () => import('./foro/foro-edit/foro-edit.module').then(m => m.ForoEditPageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
-  },
-  {
-    path: 'foro-list',
-    loadChildren: () => import('./foro/foro-list/foro-list.module').then(m => m.ForoListPageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
-  }
+
   // Puedes agregar más rutas aquí según sea necesario
 ];
 
