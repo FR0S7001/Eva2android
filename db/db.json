@@ -12,5 +12,27 @@
       "password": "password2",
       "email": "user2@example.com"
     }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "title": "Título del tema 1",
+      "description": "Descripción del tema 1"
+    },
+    {
+      "id": 2,
+      "title": "Título del tema 2",
+      "description": "Descripción del tema 2"
+    },
+    {
+      "id": 0,
+      "title": "",
+      "description": ""
+    },
+    {
+      "id": 0,
+      "title": "diiii",
+      "description": "didjdidi"
+    }
   ]
 }

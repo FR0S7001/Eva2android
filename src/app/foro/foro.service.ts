@@ -1,75 +1,29 @@
 import { Injectable } from '@angular/core';
-import { CLForo } from '../model/CLForo';
-
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
-const apiUrl = "http://localhost:3000/productos";
-const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Topic } from './foro.model'; // Importa la interfaz
 
 @Injectable({
   providedIn: 'root'
 })
 export class ForoService {
+  private apiUrl = 'http://localhost:3000/topics'; // Asegúrate de que esta URL sea correcta
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error("handleError Harrys", error); // log to console instead
-      return of(result as T);
-    };
+  getTopics(): Observable<Topic[]> {
+    return this.http.get<Topic[]>(this.apiUrl);
   }
 
-  addForo(producto: CLForo): Observable<CLForo> {
-    console.log("Res-api Enviando AddProducto : ", producto);
-    // Ojo No lo ejecuta lo declara
-    // El Pipe lo intercepta
-    return this.http.post<CLForo>(apiUrl, httpOptions)
-      .pipe(  // Tubería
-        // tap intersecta la respuesta si no hay error
-        tap((producto: CLForo) => console.log('added product w/:', producto)),
-        // En caso de que ocurra Error
-        catchError(this.handleError<CLForo>('addProduct'))
-      );
+  addTopic(topic: Topic): Observable<Topic> {
+    return this.http.post<Topic>(this.apiUrl, topic);
   }
 
-   getForos(): Observable<CLForo[]> {
-    console.log("getForos ()");
-    return this.http.get<CLForo[]>(apiUrl)
-      .pipe(
-        tap(heroes => console.log('fetched products')),
-        catchError(this.handleError('getForos', []))
-      );
-  }
-  getForo(id: String): Observable<CLForo> {
-    //const url = '${apiUrl}/${id}';
-    //return this.http.get<Producto>(url).pipe(
-    console.log("getForo ID:" + id);
-    return this.http.get<CLForo>(apiUrl + "/" + id)
-      .pipe(
-        tap(_ => console.log('fetched foro id=${id}')),
-        catchError(this.handleError<CLForo>('getForo id=${id}'))
-      );
+  updateTopic(id: number, topic: Topic): Observable<Topic> {
+    return this.http.put<Topic>(`${this.apiUrl}/${id}`, topic);
   }
 
-  deleteForot(id: number): Observable<CLForo> {
-    //const url = '${apiUrl}/${id}';
-    //return this.http.delete<Producto>(url, httpOptions).pipe(
-    return this.http.delete<CLForo>(apiUrl + "/" + id, httpOptions)
-      .pipe(
-        tap(_ => console.log('deleted Foro id=${id}')),
-        catchError(this.handleError<CLForo>('deleteForo'))
-      );
+  deleteTopic(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-
-  updateProduct(id: number, producto: CLForo): Observable<CLForo> {
-    return this.http.put<CLForo>(apiUrl + "/" + id, httpOptions)
-      .pipe(
-        tap(_ => console.log('updated foro id=${id}')),
-        catchError(this.handleError<any>('updateForo'))
-      );
-  }
-
 }
