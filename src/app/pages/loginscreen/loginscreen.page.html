@@ -23,21 +23,19 @@
 <div class="wrapform">
   <ion-item>
     <ion-icon name="person-outline"></ion-icon>
-    <ion-input type="text" name="username" required placeholder="nombre de usuario"></ion-input>
+    <ion-input [(ngModel)]="username" type="text" name="username" required placeholder="nombre de usuario"></ion-input>
   </ion-item>
   <ion-item>
     <ion-icon name="lock-closed-outline"></ion-icon>
-    <ion-input type="password" name="contraseña" placeholder="**************"></ion-input>
+    <ion-input [(ngModel)]="password" type="password" name="contraseña" placeholder="**************"></ion-input>
   </ion-item>
 </div>
 <div class="password_forgot">
-  <ion-button  fill="clear" class="ion-no-padding" [routerLink]="['/restarpass']" >¿olvido su contraseña?</ion-button>
+  <ion-button fill="clear" class="ion-no-padding" [routerLink]="['/restarpass']">¿olvido su contraseña?</ion-button>
 </div>
 <div class="sing-btn-wrap">
-  <ion-button [routerLink]="['/home']"  shape="round" fill="solid" class="sing-btn">Login</ion-button>
-
-  <ion-button [routerLink]="['/login']" shape="round">volver </ion-button>
-  
+  <ion-button (click)="login()" shape="round" fill="solid" class="sing-btn">Login</ion-button>
+  <ion-button [routerLink]="['/login']" shape="round">volver</ion-button>
 </div>
 
   </ion-card-content>
