@@ -44,6 +44,16 @@ const routes: Routes = [
     path: 'restarpass',
     loadChildren: () => import('./pages/restarpass/restarpass.module').then(m => m.RestarpassPageModule)
   },
+ 
+  {
+    path: 'pg404',
+    loadChildren: () => import('./pg404/pg404.module').then( m => m.Pg404PageModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'pg404'
+  },
+
 
   // Puedes agregar más rutas aquí según sea necesario
 ];
