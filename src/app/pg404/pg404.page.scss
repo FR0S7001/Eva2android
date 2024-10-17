@@ -1,0 +1,24 @@
+ion-content {
+    --ion-background-color: #c1c4ea;
+}
+
+ion-button {
+    --background: #e0e0e0;
+    --border-width: 2px;
+    --border-color: #333;
+    --color: #333;
+    --border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+ion-toolbar {
+    --ion-background-color: rgba(98, 114, 255, 0.5);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #0d0c0c;
+    margin-top: 30px;
+}

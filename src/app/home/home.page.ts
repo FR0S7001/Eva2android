@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 
@@ -25,11 +25,19 @@ import { Router } from '@angular/router';
   ]
 })
 
-export class HomePage {
+export class HomePage implements OnInit {
+  username: string = '';
 
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.username = navigation.extras.state['username'];
+      localStorage.setItem('username', this.username); // Guarda el username en localStorage
+    } else {
+      this.username = localStorage.getItem('username') || ''; // Recupera el username de localStorage
+    }
+  }
 
-
-  
   animationState = 'inactive';
 
   animateCard() {
@@ -41,6 +49,9 @@ export class HomePage {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  ngOnInit(): void {
   }
 
 }

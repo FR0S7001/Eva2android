@@ -13,6 +13,11 @@
 <ion-content id="main-content">
   <ion-grid>
     <ion-row>
+      <ion-col size="12">
+        <h2>Bienvenido, {{ username }}!</h2> <!-- Display the username -->
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col size="12" size-md="6">
         <ion-card  (click)="animateCard()" [@cardAnimation]="animationState">
           <img src="assets/apple-pencil.jpg" alt="Apple Pencil">

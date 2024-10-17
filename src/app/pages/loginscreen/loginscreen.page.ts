@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -16,9 +16,14 @@ export class LoginscreenPage {
   login() {
     this.authService.login(this.username, this.password).subscribe(isLoggedIn => {
       if (isLoggedIn) {
-        this.router.navigate(['/home']);
+        const navigationExtras: NavigationExtras = {
+          state: {
+            username: this.username
+          }
+        };
+        this.router.navigate(['/home'], navigationExtras); // Pass username
       } else {
-        alert('Login failed. Please check your credentials.');
+        alert('Usuario o contraseña incorrectos.');
       }
     });
   }
