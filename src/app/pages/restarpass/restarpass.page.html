@@ -16,12 +16,17 @@
     <ion-card-content>
     
 <ion-item>
-  <ion-input  [(ngModel)]="email" name="email" type="text" placeholder="Correo electronico">
+  <ion-input [(ngModel)]="username" name="username" type="text" placeholder="Nombre de usuario">
+    <ion-icon name="person-outline"></ion-icon>
+  </ion-input>
+</ion-item>
+<ion-item>
+  <ion-input [(ngModel)]="email" name="email" type="text" placeholder="Correo electrónico">
     <ion-icon name="mail-outline"></ion-icon>
   </ion-input>
 </ion-item>
-<ion-button shape="round" (click)="enviar()">enviar</ion-button>
-<ion-button [routerLink]="['/loginscreen']" shape="round">Login </ion-button>
+<ion-button shape="round" (click)="enviar()">Enviar</ion-button>
+<ion-button [routerLink]="['/loginscreen']" shape="round">Login</ion-button>
 
 
     </ion-card-content>

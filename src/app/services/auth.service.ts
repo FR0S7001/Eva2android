@@ -28,4 +28,11 @@ export class AuthService {
   isLoggedIn(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';
   }
+
+  checkUserExists(email: string, username: string): Observable<boolean> {
+    return this.http.get<any[]>(`${this.apiUrl}/users?email=${email}&username=${username}`)
+      .pipe(
+        map(users => users.some(user => user.email === email && user.username === username))
+      );
+  }
 }
