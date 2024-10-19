@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000'; // URL del json-server
+  private apiUrl = 'http://10.16.50.116:3000'; // URL del json-server
 
   constructor(private http: HttpClient) { }
 
