@@ -21,7 +21,7 @@ export class LoginscreenPage {
             username: this.username
           }
         };
-        this.router.navigate(['/home'], navigationExtras); // Pass username
+        this.router.navigate(['/home'], navigationExtras); // Ensure this path is correct
       } else {
         alert('Usuario o contraseña incorrectos.');
       }

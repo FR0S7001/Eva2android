@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://10.16.50.116:3000'; // URL del json-server
+  private apiUrl = 'http://localhost:3000'; // URL del json-server
 
   constructor(private http: HttpClient) { }
 
@@ -34,5 +34,9 @@ export class AuthService {
       .pipe(
         map(users => users.some(user => user.email === email && user.username === username))
       );
+  }
+
+  register(user: { username: string, email: string, phone: string, password: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users`, user);
   }
 }

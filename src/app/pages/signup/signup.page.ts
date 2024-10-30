@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AbstractControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,41 +10,27 @@ import { AbstractControl } from '@angular/forms';
 export class SignupPage implements OnInit {
   signupForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.signupForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]], // Solo números permitidos
-      password: ['', [Validators.required, this.passwordValidator]]
+      phone: ['', Validators.required],
+      password: ['', Validators.required]
     });
-   }
-   // Validador personalizado para la contraseña
-   passwordValidator(control: AbstractControl) {
-    const password = control.value;
-  
-    if (!password) {
-      return { passwordInvalid: true };
-    }
-
-    // Validación de al menos 4 números, 3 caracteres y 1 mayúscula
-    const hasNumber = /\d{4}/.test(password);
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]{3}/.test(password);
-
-    const valid = hasNumber && hasUppercase && hasSpecialChars;
-
-    if (!valid) {
-      return { passwordInvalid: true };
-    }
-
-    return null;
   }
 
   registro() {
     if (this.signupForm.valid) {
-      // Lógica de registro aquí
-    } else {
-      // Muestra errores de validación
+      this.authService.register(this.signupForm.value).subscribe(
+        response => {
+          console.log('User registered successfully', response);
+          // Handle successful registration, e.g., navigate to login
+        },
+        error => {
+          console.error('Error registering user', error);
+          // Handle registration error
+        }
+      );
     }
   }
 
