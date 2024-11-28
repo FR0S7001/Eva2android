@@ -7,7 +7,7 @@ import { Topic } from './foro.model'; // Importa la interfaz
   providedIn: 'root'
 })
 export class ForoService {
-  private apiUrl = 'http://localhost:3000/topics';; // Asegúrate de que esta URL sea correcta
+  private apiUrl = 'https://67369424aafa2ef22230e58a.mockapi.io/DBjson/Users'; // Asegúrate de que esta URL sea correcta
 
   constructor(private http: HttpClient) {}
 

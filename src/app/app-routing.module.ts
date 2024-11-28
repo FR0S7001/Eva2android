@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
+    /*canActivate: [authGuard] // Protege la ruta con el guard*/
   },
   {
     path: '',
@@ -20,17 +20,17 @@ const routes: Routes = [
   {
     path: 'materias',
     loadChildren: () => import('./materias/materias.module').then(m => m.MateriasPageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
+    /*canActivate: [authGuard] // Protege la ruta con el guard*/
   },
   {
     path: 'foro',
     loadChildren: () => import('./foro/foro.module').then(m => m.ForoPageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
+    /*canActivate: [authGuard] // Protege la ruta con el guard*/
   },
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule),
-    canActivate: [authGuard] // Protege la ruta con el guard
+    /*canActivate: [authGuard] // Protege la ruta con el guard*/
   },
   {
     path: 'loginscreen',

@@ -1,0 +1,34 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "AppDefine",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "http",
+    "cleartext": true,
+    "allowNavigation": ["*"]
+  },
+  "plugins": {
+    "SQLite": {
+      "iosDatabaseLocation": "Library/Databases"
+    },
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "launchAutoHide": true,
+      "backgroundColor": "#ffffffff",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": true,
+      "androidSpinnerStyle": "large",
+      "iosSpinnerStyle": "small",
+      "spinnerColor": "#999999"
+    },
+    "StatusBar": {
+      "backgroundColor": "#ffffffff",
+      "style": "DARK"
+    },
+    "Keyboard": {
+      "resize": "body",
+      "style": "light",
+      "resizeOnFullScreen": true
+    }
+  }
+}
