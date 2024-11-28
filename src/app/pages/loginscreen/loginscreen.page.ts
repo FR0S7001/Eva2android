@@ -14,6 +14,37 @@ export class LoginscreenPage {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
+    if (this.username === 'felipe' && this.password === '123456') {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          username: this.username
+        }
+      };
+      this.router.navigate(['/home'], navigationExtras);
+    } else {
+      alert('Usuario o contraseña incorrectos.');
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+}  
+
+ /* login() {
     this.authService.login(this.username, this.password).subscribe(isLoggedIn => {
       if (isLoggedIn) {
         const navigationExtras: NavigationExtras = {
@@ -28,3 +59,4 @@ export class LoginscreenPage {
     });
   }
 }
+*/

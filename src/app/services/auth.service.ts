@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000'; // URL del json-server
+  private apiUrl = 'https://67369424aafa2ef22230e58a.mockapi.io/DBjson'; // URL del json-server
 
   constructor(private http: HttpClient) { }
 
