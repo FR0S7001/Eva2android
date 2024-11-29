@@ -51,6 +51,12 @@
         <ion-item>
           <ion-label position="floating">Descripción</ion-label>
           <ion-textarea [(ngModel)]="newTopic.description"></ion-textarea>
+          <!-- Botón para seleccionar o tomar una foto -->
+      <ion-item lines="none">
+        <ion-label position="stacked">Foto de perfil</ion-label>
+        <ion-button (click)="selectImage()">Seleccionar o Tomar Foto</ion-button>
+      </ion-item>
+      <ion-img *ngIf="profileImage" [src]="profileImage"></ion-img>
         </ion-item>
         <ion-button expand="full" (click)="saveTopic()">{{ isEditMode ? 'Guardar Cambios' : 'Crear Tema' }}</ion-button>
       </ion-content>
