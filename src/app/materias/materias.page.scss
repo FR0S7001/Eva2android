@@ -1,20 +1,21 @@
 ion-content{
-  --ion-background-color:#2d0b3a;
+  --ion-background-color:#c1c4ea;
 }
 
 
 
 
 
+
 ion-button {
-  --border-width: 0;
-  --color: white;
-  --background: #ff007f;
-  --border-radius: 20px;
-  width: 80%;
-  margin: 10px auto;
-  text-align: center;
-}  
+  --background: transparent; /* Fondo transparente */
+  --border-width: 1px;       /* Grosor del borde */
+  --border-color: black;     /* Color del borde */
+  --color: black;            /* Color del texto */
+  --border-radius: 5px;      /* Redondeo de las esquinas (opcional) */
+  width: 100%;               /* Ancho completo para cada botón */
+  text-align: left;          /* Alineación del texto a la izquierda */
+} 
 
 ion-toolbar{
   --ion-background-color: transparent;
@@ -22,8 +23,8 @@ ion-toolbar{
 
 .subtitle {
   text-align: center;
-  font-size: 16px;
-  color: #ffffff;
-  margin-top: 10px;
-  font-weight: bold;
-}
+  font-size: 14px;
+  color: #0d0c0c;
+  margin-top: 30px;
+  }
+
