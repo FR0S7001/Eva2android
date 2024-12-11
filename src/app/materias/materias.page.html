@@ -22,7 +22,7 @@
       <ion-card-content>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
             reprehenderit. Veniam, molestias quos,
-            <ion-button>saber mas</ion-button>
+            <ion-button (click)="abrirEnNavegador('https://es.khanacademy.org/math')">Saber más</ion-button>
       </ion-card-content>
     </ion-card>
   </ion-label>
@@ -30,7 +30,7 @@
 <ion-item>
   <ion-label>
     <ion-card>
-      <img  src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <img  src="../../assets/img/Portada-de-Ingles-2.webp" />
       <ion-card-header>
         <ion-card-title></ion-card-title>
         <ion-card-subtitle>Ingles</ion-card-subtitle>
@@ -39,7 +39,9 @@
       <ion-card-content>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
             reprehenderit. Veniam, molestias quos,
-            <ion-button>saber mas</ion-button>
+            <ion-button (click)="abrirEnNavegador('https://www.bbc.co.uk/learningenglish')">Saber más</ion-button>
+
+            <ion-button (click)="abrirEnNavegador('https://www.englishclub.com/esl-quizzes/')">Practica tu inglés</ion-button>     
       </ion-card-content>
     </ion-card>
   </ion-label>
